@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        cron('H/10 * * * 1')  // Runs every 10 minutes on Mondays
+        cron('H/10 * * * 1')  
     }
 
     environment {
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     sh './mvnw test'
-                    sh './mvnw jacoco:report'  // Generate code coverage report
+                    sh './mvnw jacoco:report' 
                 }
             }
             post {
