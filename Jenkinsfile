@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        JAVA_HOME = "C:\\Program Files\\Eclipse Adoptium\\jdk-17"
+        JAVA_HOME = "C:\\Program Files\\Java\\jdk-17"
         PATH = "${JAVA_HOME}\\bin;${env.PATH}"
     }
 
