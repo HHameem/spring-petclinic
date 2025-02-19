@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     triggers {
-        cron('H/10 * * * 1')  
+        cron('H/10 * * * 1') 
     }
 
     environment {
-        JAVA_HOME = "/usr/lib/jvm/java-17-openjdk-amd64"
-        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+        JAVA_HOME = "C:\\Program Files\\Eclipse Adoptium\\jdk-17"
+        PATH = "${JAVA_HOME}\\bin;${env.PATH}"
     }
 
     stages {
@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh './mvnw clean package'
+                    bat './mvnw clean package'
                 }
             }
         }
@@ -28,8 +28,8 @@ pipeline {
         stage('Run Tests and Generate Coverage Report') {
             steps {
                 script {
-                    sh './mvnw test'
-                    sh './mvnw jacoco:report' 
+                    bat './mvnw test'
+                    bat './mvnw jacoco:report'  
                 }
             }
             post {
